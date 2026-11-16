@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Diagrama interativo com 14 componentes da placa-mãe, atividade prática e gabarito para aula de hardware.">
+  <meta name="theme-color" content="#0b1019">
+  <title>Placa-mãe interativa | Laboratório de Hardware</title>
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="symbols" aria-hidden="true">
+    <symbol id="i-chip" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6" rx=".5"/><path d="M9 2v3m6-3v3M9 19v3m6-3v3M2 9h3m-3 6h3m14-6h3m-3 6h3"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 0-4-2H3v14h5a5 5 0 0 1 4 2 5 5 0 0 1 4-2h5V5h-5a5 5 0 0 0-4 2Zm0 0v14"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m20.4 6.6-3-3a1.4 1.4 0 0 0-2 0L5 14l-1 6 6-1 10.4-10.4a1.4 1.4 0 0 0 0-2ZM13.8 5.2l5 5M4 20h16"/></symbol>
+    <symbol id="i-checklist" viewBox="0 0 24 24"><path d="M9 5H6a2 2 0 0 0-2 2v13h16V7a2 2 0 0 0-2-2h-3"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m8 13 2.5 2.5L16 10"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m10 6 6 6-6 6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4m-4 4v2"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></symbol>
+  </svg>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="topbar">
+    <div class="shell brand">
+      <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-chip"/></svg></span>
+      <span>Laboratório de Hardware</span>
+      <span class="brand-divider"></span>
+      <span class="brand-topic">Arquitetura de computadores</span>
+    </div>
+  </header>
+
+  <main id="conteudo" class="shell">
+    <div class="intro">
+      <h1>Placa-mãe <span>interativa</span></h1>
+      <p>Identifique 14 componentes da placa-mãe e entenda como cada um funciona.</p>
+    </div>
+
+    <nav class="modes" aria-label="Modo da atividade">
+      <button type="button" class="mode-button" data-mode="study" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>Estudo</button>
+      <button type="button" class="mode-button" data-mode="exercise" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-edit"/></svg>Exercício</button>
+      <button type="button" class="mode-button" data-mode="correction" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-checklist"/></svg>Correção</button>
+    </nav>
+
+    <div class="workspace">
+      <section class="card schematic" id="diagrama" aria-labelledby="diagram-title">
+        <header class="card-heading">
+          <div class="heading-group"><svg class="icon" aria-hidden="true"><use href="#i-target"/></svg><h2 id="diagram-title">Diagrama da placa-mãe</h2></div>
+          <span class="view-label">Vista superior</span>
+        </header>
+        <div class="board-stage">
+          <img src="motherboard.svg" width="700" height="488" alt="Esquema em vista superior de uma placa-mãe. Selecione um dos 14 pontos numerados para explorar a posição correspondente." draggable="false">
+          <div id="markers" role="group" aria-label="Pontos numerados do diagrama"></div>
+        </div>
+        <div class="diagram-footer">
+          <span><span class="legend-dot"></span>Ponto selecionado</span>
+          <span>Diagrama didático · modelo genérico</span>
+        </div>
+      </section>
+
+      <section class="card inspector" id="detalhes" aria-labelledby="inspector-title">
+        <header class="card-heading">
+          <div class="heading-group"><svg class="icon" aria-hidden="true"><use id="inspector-icon" href="#i-book"/></svg><h2 id="inspector-title">Modo estudo</h2></div>
+          <span id="position" class="position">01 / 14</span>
+        </header>
+        <div id="progress" class="progress" role="progressbar" aria-label="Componentes explorados" aria-valuemin="0" aria-valuemax="14" aria-valuenow="1"><span></span></div>
+        <div class="inspector-body" id="inspector-body"></div>
+        <div class="inspector-nav" id="component-nav">
+          <button class="step-button" id="previous" type="button"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg>Anterior</button>
+          <a class="back-to-board" href="#diagrama" aria-label="Voltar ao diagrama" title="Voltar ao diagrama"><svg class="icon" aria-hidden="true"><use href="#i-up"/></svg></a>
+          <button class="step-button next" id="next" type="button">Próximo<svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button>
+        </div>
+      </section>
+
+      <section class="card index" aria-labelledby="index-title">
+        <div class="index-heading"><svg class="icon" aria-hidden="true"><use href="#i-list"/></svg><h2 id="index-title">Componentes</h2></div>
+        <div class="number-list" id="number-list" role="group" aria-label="Atalhos dos componentes"></div>
+      </section>
+    </div>
+
+    <section class="card answer-key" id="answer-key" hidden aria-labelledby="answer-key-title">
+      <header class="card-heading"><div class="heading-group"><svg class="icon" aria-hidden="true"><use href="#i-checklist"/></svg><h2 id="answer-key-title">Gabarito completo</h2></div></header>
+      <ol id="key-list"></ol>
+    </section>
+    <noscript><p>Ative o JavaScript no navegador para usar o diagrama e os modos da atividade.</p></noscript>
+    <div id="announcements" class="visually-hidden" role="status"></div>
+  </main>
+
+  <footer class="site-footer shell">Laboratório de Hardware <span aria-hidden="true">/</span> Identificação de componentes</footer>
+</body>
+</html>
